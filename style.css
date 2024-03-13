@@ -1,0 +1,170 @@
+*{
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+}
+
+.togg{
+    position: relative;
+    height: 30px;
+    width: 50px;
+    z-index: 3;
+    top: 15px;
+    opacity: 0; 
+    /* display: none; */
+    position: absolute;
+}
+.togg[type=checkbox]:before{
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 30px;
+    background-color: aquamarine;
+    top: 0;
+    z-index: 3;
+    left: 0;
+    /* border-radius: 2rem; */
+    opacity: 0;
+    border: 1px solid black;
+}
+.tog-task{
+    height: 100px;
+    width: 100%;
+    top: 0;
+    padding-top: 1rem;
+    background-color: green;
+    /* background-color: #ccc; */
+    padding-left: 2rem;   
+    position: relative;
+}
+.con-box{
+    position: absolute;
+    width: 50px;
+    z-index: 2;
+    border-radius: 2rem;
+    background-color: black;
+    height: 30px;
+}
+.radius{
+    position: absolute;
+    width: 20px;
+    height: 30px;
+    left: 0;
+    z-index: 2;
+    border-radius: 50%;
+    background-color: #fff;
+    transition: all 500ms linear;
+}
+.togg:checked~.con-box{
+    background-color: #fff;
+}
+.togg:checked~.con-box>.radius{
+    background-color: black;
+    transform: translate(0%) ;
+    transform: translate(150%); 
+}
+.cointainer{
+    position: absolute; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    transition: all 500ms ease;
+    background-color: rgb(193, 24, 245);
+}
+.togg:checked~.cointainer{
+    background-color: blue;
+}
+.card{
+    margin-left:3rem ;
+    display: grid;
+    place-items: center;
+    width: 300px;
+    opacity: .9;
+    position: relative;
+    height: 500px;
+    overflow: hidden;
+    background-color: #000;
+}
+.card::before{
+    content: '';
+    height: 120%;
+    position: absolute;
+    width: 150px;
+  
+    opacity: 0.9;
+    /* inset: 3px; */
+    animation: rotation 4s linear infinite;
+    background-image: linear-gradient(teal,pink);
+}
+.card::after{
+    content: '';
+    position: absolute;
+    /* height: 100%; */
+    /* width: 100%; */
+    z-index: 2;
+    background: rgb(8, 8, 8);
+    inset: 13px;
+}
+@keyframes rotation{
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+.neon{
+    position: absolute;
+    background-color: #000;
+    width: 200px;
+    top: 20%;
+    right: 30px;
+    overflow: hidden;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    height: 100px;
+    box-shadow: 0px 0px 3rem red;
+}
+.neon>h1{
+    font-size: 2rem;
+    color:#fff;
+    text-shadow: 0 10px 10px red;
+}
+.neon:after{
+    content: '';
+    position: absolute;
+    inset: 4px;
+    z-index: 2;
+    /* background-color: gray; */
+    box-shadow: 0 0 1rem rgb(240, 10, 10);
+}
+.neon:hover::after{
+    background-color: white;
+}
+.neon:hover h1{
+    color: red;
+    z-index: 3;
+    transition: all 2s ease-in;
+    text-shadow: none;
+}
+.empty{
+    height: 400%;
+    width: 20px;
+    position: absolute;
+    opacity: 0.3;
+    rotate: 60deg;
+    z-index: 9;
+    transform: translateX(400deg);
+    background: linear-gradient( black, white);
+    animation:  rotateLeftToRight 4s linear infinite;
+}
+@keyframes  rotateLeftToRight{
+    from{
+        transform: translateX(-400%);
+    }
+    to{
+        transform: translateX(450%);
+    }
+}
